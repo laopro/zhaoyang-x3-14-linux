@@ -1,0 +1,13 @@
+# zhaoyang-x3-14-linux -- Lenovo ZhaoYang X3-14 IRL (83GX) ONLY
+#
+# The PCI match below only decides WHICH device we ask about; the helper
+# script decides WHETHER to act, after checking DMI and the chip revision.
+# 10ec:8168 is the most common Realtek GbE id in existence, so it must NOT
+# be the thing that authorises the change.
+ACTION=="bind", SUBSYSTEM=="pci", DRIVER=="r8169", \
+  ATTR{vendor}=="0x10ec", ATTR{device}=="0x8168", \
+  RUN+="/usr/local/lib/zhaoyang-power/aspm-r8169-fix.sh /sys%p"
+
+# Runtime power management for PCI devices (what powertop reports as "Bad").
+# Installed only on supported hardware -- install.sh refuses to run elsewhere.
+ACTION=="add|bind", SUBSYSTEM=="pci", ATTR{power/control}="auto"
