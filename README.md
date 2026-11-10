@@ -223,3 +223,7 @@ for a policy the kernel cannot safely assume for everyone.
 ## License
 
 MIT. See [LICENSE](LICENSE).
+
+## Measuring it
+
+See [docs/measuring.md](docs/measuring.md) for how to check the fix and read `s0ix-drain.log`.

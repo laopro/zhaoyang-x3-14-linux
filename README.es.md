@@ -233,3 +233,7 @@ riesgo para todos.
 ## Licencia
 
 MIT. Ver [LICENSE](LICENSE).
+
+## Medir
+
+Ver [docs/measuring.md](docs/measuring.md) para comprobar el arreglo y leer `s0ix-drain.log` (en inglés).
