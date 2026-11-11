@@ -144,14 +144,11 @@ hardware errata. This repo re-enables it. On this board it works, and the
 measurements above are honest — but there is an important gap in that
 evidence:
 
-> **The ethernet link was never up during any of the testing.** `NO-CARRIER`,
-> no cable, in every log line. The failure mode ASPM causes on these chips —
-> dropped packets, TX timeouts, link flapping — only shows up with an active
-> link carrying traffic. So what has been demonstrated is that ASPM does not
-> break a NIC that is doing nothing.
-
-That is fine if you use WiFi, which is why it has never surfaced here. If you
-use the wired port heavily, treat this as untested and watch for trouble.
+> **Wired ethernet has now been tested with the cable connected.** At 100
+> packets/s for 60 s, ASPM on and off both showed 0 % loss and no NIC errors.
+> See [docs/ethernet-test.md](docs/ethernet-test.md). A flood ping showed 39 %
+> loss with ASPM on that is not explained yet, and sustained TCP throughput has
+> not been tested.
 
 If your wired ethernet starts dropping packets, flapping or stalling, this
 repo is the first thing to suspect, not the last. Test instantly:

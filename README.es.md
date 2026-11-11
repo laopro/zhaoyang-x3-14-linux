@@ -149,16 +149,11 @@ hardware. Este repo lo vuelve a habilitar. En esta placa funciona, y las
 mediciones de arriba son honestas — pero hay un hueco importante en esa
 evidencia:
 
-> **El enlace de ethernet nunca estuvo arriba durante las pruebas.**
-> `NO-CARRIER`, sin cable, en todas las líneas del log. El modo de falla que
-> ASPM provoca en estos chips — paquetes perdidos, TX timeouts, link flapping
-> — solo se manifiesta con el enlace activo llevando tráfico. Entonces lo que
-> se demostró es que ASPM no rompe una tarjeta de red que no está haciendo
-> nada.
-
-Eso está bien si usas WiFi, que es la razón por la que nunca salió a flote
-aquí. Si usas el puerto por cable intensamente, considéralo no probado y
-mantente alerta.
+> **El ethernet por cable ya se probó con el cable conectado.** A 100
+> paquetes/s durante 60 s, ASPM encendido y apagado dieron 0 % de pérdida y
+> ningún error del NIC. Ver [docs/ethernet-test.md](docs/ethernet-test.md). Un
+> flood ping dio 39 % de pérdida con ASPM encendido que todavía no se explica, y
+> no se ha probado throughput TCP sostenido.
 
 Si tu ethernet por cable empieza a perder paquetes, a cortarse o a trabarse,
 este repo es lo primero que hay que sospechar, no lo último. Se prueba al
